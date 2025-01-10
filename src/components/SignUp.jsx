@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   const { createFriend } = useContext(AuthContext);
@@ -48,6 +49,9 @@ const SignUp = () => {
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col ">
         <div className="text-center">
+          <button className="btn mb-5">
+            <Link to="/">Home</Link>
+          </button>
           <h1 className="text-5xl text-center font-bold">SignUp now!</h1>
         </div>
         <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
