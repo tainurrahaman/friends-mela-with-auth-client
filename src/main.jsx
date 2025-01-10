@@ -17,6 +17,7 @@ const router = createBrowserRouter([
   {
     path: "/friends",
     element: <Friends></Friends>,
+    loader: () => fetch("http://localhost:5000/friends"),
   },
   {
     path: "/signin",
