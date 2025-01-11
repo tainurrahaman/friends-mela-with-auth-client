@@ -19,13 +19,16 @@ const SignIn = () => {
         const lastSignInTime = result?.user?.metadata?.lastSignInTime;
         const newFriend = { email, lastSignInTime };
 
-        fetch("http://localhost:5000/friends", {
-          method: "PATCH",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(newFriend),
-        })
+        fetch(
+          "https://friends-mela-with-auth-server-n0jc9bwpu-tainur-s-projects.vercel.app/friends",
+          {
+            method: "PATCH",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(newFriend),
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
