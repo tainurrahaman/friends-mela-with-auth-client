@@ -20,16 +20,13 @@ const SignUp = () => {
 
         const newFriend = { name, email, createAt };
 
-        fetch(
-          "https://friends-mela-with-auth-server-n0jc9bwpu-tainur-s-projects.vercel.app/friends",
-          {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(newFriend),
-          }
-        )
+        fetch("https://friends-mela-with-auth-server.vercel.app/friends", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(newFriend),
+        })
           .then((res) => res.json())
           .then((data) => {
             console.log(data);

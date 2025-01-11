@@ -20,7 +20,7 @@ const Friends = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `https://friends-mela-with-auth-server-n0jc9bwpu-tainur-s-projects.vercel.app/friends/${id}`,
+          `https://friends-mela-with-auth-server.vercel.app/friends/${id}`,
           {
             method: "DELETE",
           }

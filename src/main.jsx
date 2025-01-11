@@ -18,9 +18,7 @@ const router = createBrowserRouter([
     path: "/friends",
     element: <Friends></Friends>,
     loader: () =>
-      fetch(
-        "https://friends-mela-with-auth-server-n0jc9bwpu-tainur-s-projects.vercel.app/friends"
-      ),
+      fetch("https://friends-mela-with-auth-server.vercel.app/friends"),
   },
   {
     path: "/signin",
