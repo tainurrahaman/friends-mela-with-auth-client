@@ -96,6 +96,12 @@ const SignUp = () => {
               <button className="btn btn-primary">SignUp</button>
             </div>
           </form>
+          <p>
+            Already Account ? now{" "}
+            <Link className="btn" to="/signin">
+              LogIn
+            </Link>
+          </p>
         </div>
       </div>
     </div>

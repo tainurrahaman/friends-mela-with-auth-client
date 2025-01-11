@@ -59,6 +59,7 @@ const Friends = () => {
               <th>Name</th>
               <th>Email</th>
               <th>CreateAt</th>
+              <th>LastSignInTime</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -69,6 +70,7 @@ const Friends = () => {
                 <td>{friend.name}</td>
                 <td>{friend.email}</td>
                 <td>{friend.createAt}</td>
+                <td>{friend.lastSignInTime}</td>
                 <td className="space-x-2 flex items-center">
                   <button
                     onClick={() => handleFriendDelete(friend._id)}

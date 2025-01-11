@@ -1,9 +1,10 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 
 const SignIn = () => {
   const { friendLogin } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleUpdateFriend = (e) => {
     e.preventDefault();
@@ -14,6 +15,23 @@ const SignIn = () => {
     friendLogin(email, password)
       .then((result) => {
         console.log(result.user);
+
+        const lastSignInTime = result?.user?.metadata?.lastSignInTime;
+        const newFriend = { email, lastSignInTime };
+
+        fetch("http://localhost:5000/friends", {
+          method: "PATCH",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(newFriend),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            form.reset();
+            navigate("/friends");
+          });
       })
       .catch((error) => {
         console.log(error);
@@ -58,6 +76,12 @@ const SignIn = () => {
             <div className="form-control mt-6">
               <button className="btn btn-primary">SignIn</button>
             </div>
+            <p>
+              If new friend , Pls{" "}
+              <Link className="btn" to="/signup">
+                SignUp
+              </Link>
+            </p>
           </form>
         </div>
       </div>
